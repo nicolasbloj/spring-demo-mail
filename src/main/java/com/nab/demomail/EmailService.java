@@ -13,7 +13,7 @@ public class EmailService {
   @Autowired
   public JavaMailSender emailSender;
 
-  public void sendSimpleMessage(String to, String subject, String text) {
+  public boolean sendSimpleMessage(String to, String subject, String text) {
     try {
       SimpleMailMessage message = new SimpleMailMessage();
       message.setTo(to);
@@ -21,8 +21,10 @@ public class EmailService {
       message.setText(text);
 
       emailSender.send(message);
+      return true;
     } catch (MailException exception) {
       exception.printStackTrace();
+      return false;
     }
   }
 }

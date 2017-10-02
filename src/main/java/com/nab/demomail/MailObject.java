@@ -18,6 +18,8 @@ public class MailObject {
 
 
 
+  public MailObject() {}
+
   public MailObject(String to, String subject, String text) {
     super();
     this.to = to;
